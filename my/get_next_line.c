@@ -4,10 +4,9 @@
 
 char    *add_char_in_line(char *line, char c, int buffer)
 {
-  int   i;
-  char  *new_line;
+  int i = 0;
+  char *new_line;
 
-  i = 0;
   if ((new_line = malloc(sizeof(*new_line) * (my_strlen(line) + buffer))) == NULL)
     return (NULL);
   while (line && line[i])
@@ -24,13 +23,11 @@ char    *add_char_in_line(char *line, char c, int buffer)
 
 char    *get_next_line(int fd)
 {
-  char  *line;
+  char  *line = NULL;
   int	r;
   char  c;
-  char  s;
+  char  s = '\0';
 
-  s = '\0';
-  line = NULL;
   while ((r = read(fd, &c, 1)) && (c != '\0' && s != '\n'))
     {
       if (c =='\n')
