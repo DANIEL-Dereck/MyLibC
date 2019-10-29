@@ -22,12 +22,10 @@ char    *my_remp_str(char *str, char *dest, int i, int k)
 
 char    *my_epur_str(char *str)
 {
-  char  *dest;
-  int   k;
-  int   i;
-
-  k = 0;
-  i = 0;
+  char *dest;
+  int k = 0;
+  int i = 0;
+  
   if (str == NULL)
     return (NULL);
   while (str[i] != '\0')
@@ -47,9 +45,8 @@ char    *my_epur_str(char *str)
 
 int     my_needposchar(char *str, char c)
 {
-  int   r;
+  int r = 0;
 
-  r = 0;
   if (str == NULL)
     return (-1);
   while (str[r] != '\0')
@@ -63,9 +60,8 @@ int     my_needposchar(char *str, char c)
 
 int     my_needposcharAt(char *str, char c, int start)
 {
-  int   r;
+  int r = start;
   
-  r = start;
   if (my_strlen(str) - start <= 0)
     return(-1);
   if (str == NULL)
@@ -81,9 +77,8 @@ int     my_needposcharAt(char *str, char c, int start)
 
 int my_nmatch_bis(char *s1, char *s2, int pos)
 {
-  int i;
+  int i = 0;
 
-  i = 0;
   if (pos > my_strlen(s2))
     return (-1);
   while (i <= pos)
@@ -97,13 +92,10 @@ int my_nmatch_bis(char *s1, char *s2, int pos)
 
 int my_nmatch(char *s1, char *s2, int pos)
 {
-  int len1;
-  int len2;
-  int result;
+  int len1 = my_strlen(s1);
+  int len2 = my_strlen(s2);
+  int result = 0;
 
-  result = 0;
-  len1 = my_strlen(s1);
-  len2 = my_strlen(s2);
   if (pos <= 0 || s1 == NULL || s2 == NULL)
     return (-1);
   if (len1 >= len2)
@@ -120,15 +112,14 @@ void  my_putchar(char c)
 
 int my_putstr(char *str)
 {
-  int a;
+  int a = 0;
 
-  a = 0;
   if (str != NULL)
     {
       while (str[a] != '\0')
   {
     my_putchar(str[a]);
-    a = a + 1;
+    a += 1;
   }
       return (0);
     }
@@ -137,9 +128,8 @@ int my_putstr(char *str)
 
 int my_revstr(char *str)
 {
-  int i;
+  int i = 0;
 
-  i = 0;
   if (str != NULL)
     {
       while (str[i++] != '\0');
@@ -153,11 +143,9 @@ int my_revstr(char *str)
 
 int my_c_w(char *str)
 {
-  int   i;
-  int   n;
+  int   i = 0;
+  int   n = 1;
 
-  i = 0;
-  n = 1;
   while (str[i] != '\0' && str[i] != '\n')
     {
       if (str[i] == ' ' && str[i + 1] != '\0')
@@ -169,9 +157,8 @@ int my_c_w(char *str)
 
 int my_c_c(char *str)
 {
-  int   i;
+  int i = 0;
 
-  i = 0;
   while ((str[i] != ' ') && (str[i] != '\0') && (str[i] != '\n'))
     i++;
   i = i + 1;
@@ -181,9 +168,8 @@ int my_c_c(char *str)
 char  **my_str_wordtab(char *str, int a, int b)
 {
   char  **tab;
-  int   i;
+  int   i = 0;
 
-  i = 0;
   if ((tab = malloc(sizeof(tab) * ((my_c_w(str) + 1)))) == NULL)
     return (NULL);
   while (str[i] != '\n' && str[i] != '\0')
@@ -208,11 +194,9 @@ char  **my_str_wordtab(char *str, int a, int b)
 char  **my_str_to_wordtab(char *str)
 {
   char **tab;
-  int a;
-  int b;
+  int a = 0;
+  int b = 0;
 
-  a = 0;
-  b = 0;
   if (str == NULL)
     return (NULL);
   if ((tab = my_str_wordtab(str, a, b)) == NULL)
@@ -222,16 +206,12 @@ char  **my_str_to_wordtab(char *str)
 
 char    *my_strcat(char *src, char *str)
 {
-  char  *dest;
-  int   a;
-  int   b;
-  int   i;
-  int   l;
+  char *dest;
+  int a = my_strlen(src);
+  int b = my_strlen(str);
+  int i = 0;
+  int l = 0;
 
-  i = 0;
-  l = 0;
-  a = my_strlen(src);
-  b = my_strlen(str);
   if ((dest = malloc(sizeof(*dest) * (a + b))) == NULL)
     return (0);
   while (a >= 0)
@@ -251,11 +231,9 @@ char    *my_strcat(char *src, char *str)
 
 int     my_strcmp(char *s1, char *s2)
 {
-  int b;
-  int c;
+  int b = my_strlen(s1);
+  int c = my_strlen(s2);
 
-  b = my_strlen(s1);
-  c = my_strlen(s2);
   if (s1 == NULL || s2 == NULL)
     return (-1);
   if (b != c)
@@ -273,7 +251,7 @@ int     my_strcmp(char *s1, char *s2)
 char    *my_strdup(char *src)
 {
   char  *dest;
-  int   r;
+  int r = 0;
 
   r = 0;
   if (src == NULL)
@@ -293,12 +271,11 @@ char    *my_strdup(char *src)
 
 int my_strlen(char *str)
 {
-  int a;
+  int result = 0;
 
-  a = 0;
-  if (str == NULL)
-    return (-1);
-  while (str[a++] != '\0');
-  a--;
-  return (a);
+  if (str != NULL) {
+    while (str[result++] != '\0');
+  }
+  
+  return (--result);
 }
