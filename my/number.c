@@ -4,13 +4,10 @@
 
 int     my_getnbr(char *str)
 {
-  int   i;
-  int   nb;
-  int   sign;
+  int i = 0;
+  int nb = 0;
+  int sign = 1;
 
-  i = 0;
-  nb = 0;
-  sign = 1;
   if (str == NULL)
     return (0);
   while (str[i] && (str[i] == '-' || str[i] == '+'))
@@ -18,19 +15,20 @@ int     my_getnbr(char *str)
       sign *= (str[i] == '-') * -1 + (str[i] == '+');
       ++i;
     }
+  
   while (str[i] && str[i] >= '0' && str[i] <= '9')
     {
       nb = nb * 10 + (str[i] - 48);
       ++i;
     }
+
   return (nb * sign);
 }
 
 int my_pow(int nbr, int puissance)
 {
-  int nbrs;
+  int nbrs = nbr;
 
-  nbrs = nbr;
   if (puissance == 0)
     nbr = 1;
   else if (puissance == 1)
@@ -44,11 +42,13 @@ int my_pow(int nbr, int puissance)
   return (nbr);
 }
 
-void  my_while(int a, int c, int d, int e)
+int my_put_nbr(int nb)
 {
-  int nb;
+  int a = 1;
+  int c = 1;
+  int d = nb;
+  int e = nb;
 
-  nb = e;
   if (nb < 0)
     {
       my_putchar('-');
@@ -68,20 +68,6 @@ void  my_while(int a, int c, int d, int e)
       my_putchar(c + 48);
       a = a / 10;
     }
-}
-
-int my_put_nbr(int nb)
-{
-  int a;
-  int c;
-  int d;
-  int e;
-
-  a = 1;
-  c = 1;
-  d = nb;
-  e = nb;
-  my_while(a, c, d, e);
   return (0);
 }
 
@@ -149,13 +135,10 @@ int my_put_nbru(unsigned int nb)
 
 void    my_basewhile(int c, int d, int ba, char *base)
 {
-  int nb;
-  int a;
-  int e;
+  int nb = d;
+  int a = 1;
+  int e = d;
 
-  a = 1;
-  nb = d;
-  e = d;
   while (nb >= ba)
     {
       nb = nb / ba;
