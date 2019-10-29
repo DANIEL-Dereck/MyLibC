@@ -93,11 +93,9 @@ char	*my_printformat(char *my_formatall)
 
 void	my_printf_funk(const char *format, char *my_formatall, va_list ap)
 {
-  int	a;
-  int	f;
+  int a = 0;
+  int f = 0;
 
-  f = 0;
-  a = 0;
   while (format[a] != '\0')
     {
       if (format[a] == '%')
@@ -123,9 +121,8 @@ void	my_printf_funk(const char *format, char *my_formatall, va_list ap)
 int	my_printf(const char *format, ...)
 {
   va_list ap;
-  char *my_formatall;
+  char *my_formatall = malloc(sizeof(my_formatall) * 11);
 
-    my_formatall = malloc(sizeof(my_formatall) * 11);
   if (my_formatall == NULL)
     return (-1);
   if (format == NULL)
