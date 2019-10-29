@@ -35,7 +35,6 @@ void    my_formatsmaj(va_list ap);
 int     my_getnbr(char *str);
 void    my_basewhile(int c, int d, int ba, char *base);
 int     my_putnbr_base(int nb, char *base);
-void    my_while(int a, int c, int d, int e);
 int     my_put_nbr(int nb);
 void    my_whileu(unsigned int a, unsigned int c, unsigned int d, unsigned int e);
 int     my_put_nbru(unsigned int nb);
